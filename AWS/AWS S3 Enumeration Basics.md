@@ -14,7 +14,7 @@ http://dev.huge-logistics.com
 
 Firstly, we check the page source of the site to get interesting information.
 
-![](Pasted%20image%2020260717234124.png)
+![](./images/Pasted%20image%2020260717234124.png)
 
 ![](Pasted%20image%2020260717234146.png)
 
