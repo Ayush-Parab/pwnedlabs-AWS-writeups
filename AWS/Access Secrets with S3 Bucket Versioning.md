@@ -31,13 +31,13 @@ Nmap done: 1 IP address (1 host up) scanned in 19.08 seconds
 
 We can see that port `TCP-80` is open with `http` service, implying that a web server is running.
 
-![](Pasted%20image%2020260815152543.png)
+![](./images/Pasted%20image%2020260815152543.png)
 
 The website contains a login page where we can supply credentials. We currently do not have information of the valid credentials.
 
 Next, we take a look at the source of the web page.
 
-![](Pasted%20image%2020260815152701.png)
+![](./images/Pasted%20image%2020260815152701.png)
 
 One interesting thing to note is the presence of the `S3` bucket 
 
@@ -84,11 +84,11 @@ We can see two directories `dashboard` and `profile`.
 
 `/dashboard` opens the dashboard page containing various data:-
 
-![](Pasted%20image%2020260815152945.png)
+![](./images/Pasted%20image%2020260815152945.png)
 
 However, we are not able to open the `/profile` page yet. Maybe because we have not logged in.
 
-![](Pasted%20image%2020260815153030.png)
+![](./images/Pasted%20image%2020260815153030.png)
 
 We get redirected to `/login`
 
@@ -100,7 +100,7 @@ https://huge-logistics-dashboard.s3.eu-north-1.amazonaws.com/
 
 Opening the public endpoint of the S3 bucket shows us the following information about the content stored inside the bucket.
 
-![](Pasted%20image%2020260815153155.png)
+![](./images/Pasted%20image%2020260815153155.png)
 
 Lets try to explore the bucket using `aws cli`
 
@@ -502,7 +502,7 @@ aws s3api get-object --bucket huge-logistics-dashboard --key "static/js/auth.js"
 
 We have credentials in plain sight!
 
-![](Pasted%20image%2020260815154355.png)
+![](./images/Pasted%20image%2020260815154355.png)
 
 Let us use these credentials to login on the website!
 
@@ -510,7 +510,7 @@ Let us use these credentials to login on the website!
 
 After entering the credentials on the login page, we navigate to the `/profile` directory on the website and find a set of AWS keys!
 
-![](Pasted%20image%2020260815154648.png)
+![](./images/Pasted%20image%2020260815154648.png)
 
 Let us try using these access keys in our CLI.
 

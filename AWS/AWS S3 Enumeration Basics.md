@@ -16,7 +16,7 @@ Firstly, we check the page source of the site to get interesting information.
 
 ![](./images/Pasted%20image%2020260717234124.png)
 
-![](Pasted%20image%2020260717234146.png)
+![](./images/Pasted%20image%2020260717234146.png)
 
 In the page source, we can see that the images used are stored in a `S3 bucket` which has a name 
 
@@ -24,7 +24,7 @@ In the page source, we can see that the images used are stored in a `S3 bucket` 
 dev.huge-logistics.com
 ```
 
-![](Pasted%20image%2020260718000752.png)
+![](./images/Pasted%20image%2020260718000752.png)
 
 We are not able to view the contents using the web interface, we will try the CLI instead.
 Now, we try to list the directories of this bucket without using valid credentials.
@@ -90,7 +90,7 @@ aws s3 cp s3://dev.huge-logistics.com/shared/hl_migration_project.zip ./ --no-si
 
 After unzipping the file, we find a powershell script present with hardcoded access keys.
 
-![](Pasted%20image%2020260717235253.png)
+![](./images/Pasted%20image%2020260717235253.png)
 
 We will use these Keys and login to the `aws cli` using `aws configure`
 
@@ -160,7 +160,7 @@ We will download these files into our own system and inspect them.
 aws s3 cp s3://dev.huge-logistics.com/migration-files/migrate_secrets.ps1 ./secrets2.ps1
 ```
 
-![](Pasted%20image%2020260718000921.png)
+![](./images/Pasted%20image%2020260718000921.png)
 
 We try using these keys since these are different, however we find out that these are no longer valid.
 
@@ -180,7 +180,7 @@ We login using the old keys again and download the XML file where the keys are r
 aws s3 cp s3://dev.huge-logistics.com/migration-files/test-export.xml ./
 ```
 
-![](Pasted%20image%2020260718001333.png)
+![](./images/Pasted%20image%2020260718001333.png)
 
 We have received new keys now, which we will use to login.
 

@@ -16,7 +16,7 @@ We have been provided only the link to docker hub which is a registry of contain
 
 Since we have been provided with a link to the docker hub registry, we have to look for publicly available container images using the clues in the scenario. Since the name of the org is `Huge Logistics`, we will try to search using that name itself.
 
-![](Pasted%20image%2020260927140404.png)
+![](./images/Pasted%20image%2020260927140404.png)
 
 We found an image that looks related to this organization. Lets pull it using the command given in the bottom right.
 
@@ -511,7 +511,7 @@ aws codecommit get-differences --repository-name vessel-tracking --after-commit-
         ---------------
 ```
 
-Note:- The entire output has not been pasted, it is actually very long.
+Note:- The entire output has not been ./images/Pasted, it is actually very long.
 
 The above command gives us information about the file/blob added, modified or deleted during the commit we mention. It looks very messy, lets modify the command for cleaner output:-
 

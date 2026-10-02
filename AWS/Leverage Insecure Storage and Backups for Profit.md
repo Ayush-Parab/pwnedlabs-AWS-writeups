@@ -437,7 +437,7 @@ aws ec2 get-password-data --instance-id i-04cc1c2c7ec1af1b5 --region us-east-1 -
 
 Since we have the password now, lets try to access the ec2 instance. As I mentioned earlier, since the `WinRM` port is open over `HTTP`, we can use the password we just extracted to try logging in. We will use `powershell` for this!
 
-![](Pasted%20image%2020260814001528.png)
+![](./images/Pasted%20image%2020260814001528.png)
 
 In the above snapshot, we are doing two things:-
 - Since we are using `HTTP` for `WinRM` instead of `HTTPS`, we are getting denied by default. First command is used to bypass this check.
@@ -446,7 +446,7 @@ In the above snapshot, we are doing two things:-
 **Note:-**
 Make sure you are connected via the `WireGuard VPN` before attempting the lab.
 
-![](Pasted%20image%2020260814001634.png)
+![](./images/Pasted%20image%2020260814001634.png)
 
 ```
 $pass = ConvertTo-SecureString 'UZ$abR<REDACTED>' -AsPlainText -Force
@@ -460,13 +460,13 @@ I used `powershell` from my host machine directly. I was not able to achieve the
 
 The above commands are used to get a remote session of the `ec2` instance running windows.
 
-![](Pasted%20image%2020260814002503.png)
+![](./images/Pasted%20image%2020260814002503.png)
 
 Once we login successfully, `Get-Command` lists the available list of commands for use in the remote session. We will use those commands to check for interesting information.
 
 We can see there is a non-default `admin` user, we check his directory and find a `.aws` directory which has stored credentials!
 
-![](Pasted%20image%2020260814002517.png)
+![](./images/Pasted%20image%2020260814002517.png)
 
 ### Privilege escalation
 

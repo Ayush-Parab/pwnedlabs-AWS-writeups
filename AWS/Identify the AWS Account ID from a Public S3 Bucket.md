@@ -46,15 +46,15 @@ It is very clear that port `TCP-80` is open and running a `Apache` web server.
 
 ### Web Enumeration
 
-![](Pasted%20image%2020260714222917.png)
+![](./images/Pasted%20image%2020260714222917.png)
 
 From this website, it is visible that the images have been uploaded from an `AWS S3` bucket. We navigate to the S3 bucket.
 
-![](Pasted%20image%2020260714223025.png)
+![](./images/Pasted%20image%2020260714223025.png)
 
 We can see a list of contents present inside the `S3` bucket named `mega-big-tech`
 
-![](Pasted%20image%2020260714223113.png)
+![](./images/Pasted%20image%2020260714223113.png)
 
 If we try to access the `images` directory under the bucket, we are denied access.
 
@@ -70,7 +70,7 @@ Details of how the tool works have been provided in a blog linked inside the rep
 
 We need a role inside our own account with `ListBucket` and `GetObject` policies attached to it.
 
-![](Pasted%20image%2020260714231303.png)
+![](./images/Pasted%20image%2020260714231303.png)
 
 After making this role, we can use it to find the account ID of the public S3 bucket.
 

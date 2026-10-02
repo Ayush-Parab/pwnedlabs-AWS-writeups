@@ -28,11 +28,11 @@ We use the link provided which has the `Account number` in it, we enter the user
 
 Since we are tasked with enumerating the IAM user `dev01`, we navigate to the `IAM` services in the console.
 
-![](Pasted%20image%2020260719004847.png)
+![](./images/Pasted%20image%2020260719004847.png)
 
 We navigate to the `IAM users` tab and click on our desired IAM user, which is `dev01`
 
-![](Pasted%20image%2020260719004944.png)
+![](./images/Pasted%20image%2020260719004944.png)
 
 We can see the permissions attached to this IAM user. There are 3 policies attached in total, 2 of them are `Directly` attached and one of them is `Inline`.
 
@@ -42,17 +42,17 @@ Here are the policy permissions in detail after expanding:-
 
 `AmazonGuardDutyReadOnlyAccess:`
 
-![](Pasted%20image%2020260719005342.png)
+![](./images/Pasted%20image%2020260719005342.png)
 This policy provides us read only access to Amazon Guard Duty which is a security service provided by AWS.
 
 `dev01:`
 
-![](Pasted%20image%2020260719005433.png)
+![](./images/Pasted%20image%2020260719005433.png)
 This is a customer managed policy and provides access to the `Get` and `List` commands in `iam` service of AWS.
 
 `S3_Access:`
 
-![](Pasted%20image%2020260719005504.png)
+![](./images/Pasted%20image%2020260719005504.png)
 This is the inline policy which provides `ListBucket` and `GetObject` access on a particular bucket named `hl-dev-artifacts`
 
 We can explore the findings in Guard Duty and play around, however I will skip to the S3 bucket.
@@ -69,24 +69,24 @@ In our case, the bucket name is `hl-dev-artifacts`
 
 Once we paste the URL in the browser, the following page will open up.
 
-![](Pasted%20image%2020260719010252.png)
+![](./images/Pasted%20image%2020260719010252.png)
 
 You can view the contents of `flag.txt` from here.
 
 If you want to check further what the second policy called `dev01` read further or skip to CLI.
 First we need to get the information about roles, and one of them seems interesting called `BackendDev`
 
-![](Pasted%20image%2020260719015447.png)
+![](./images/Pasted%20image%2020260719015447.png)
 
 We will check its trust relationships.
 
-![](Pasted%20image%2020260719015532.png)
+![](./images/Pasted%20image%2020260719015532.png)
 
 This means that this role can be assumed by our `dev01` IAM user using AWS STS.
 
 The policy attached to this role:-
 
-![](Pasted%20image%2020260719015646.png)
+![](./images/Pasted%20image%2020260719015646.png)
 
 It means, if we assume this role, we will be able to describe EC2 instances and retrieve secrets from the AWS Secrets Manager.
 

@@ -20,7 +20,7 @@ We will first setup `BurpSuite` proxy in such a way that it intercepts requests 
 
 First install the `Copy as python requests` extension from the `BApp Store`.
 
-![](Pasted%20image%2020260822204022.png)
+![](./images/Pasted%20image%2020260822204022.png)
 
 Then turn the intercept "ON" in the `BurpSuitePro`
 
@@ -61,19 +61,19 @@ This is the aws cli command we will enter and intercept its request in Burp.
 
 The following two requests will be generated once we enter the command. We will send the second request to the `repeater`
 
-![](Pasted%20image%2020260822204455.png)
+![](./images/Pasted%20image%2020260822204455.png)
 
-![](Pasted%20image%2020260822204512.png)
+![](./images/Pasted%20image%2020260822204512.png)
 
 Once we send the request to the `repeater` and hit `send`:-
 
-![](Pasted%20image%2020260822204653.png)
+![](./images/Pasted%20image%2020260822204653.png)
 
 We get the following response back which is similar to the structure we see on the web page whenever we access an S3 bucket endpoint.
 
 We will copy the following request as python code now:-
 
-![](Pasted%20image%2020260822204826.png)
+![](./images/Pasted%20image%2020260822204826.png)
 
 Once the code gets copied, we will paste it in vscode.
 
@@ -287,7 +287,7 @@ for file in file_list:
 
 After we run the above code, we can see the directory structure and the files downloaded to our system:-
 
-![](Pasted%20image%2020260822210123.png)
+![](./images/Pasted%20image%2020260822210123.png)
 
 The flag for this challenge can be obtained using the following command which calculates a `md5sum` of the zip file:-
 

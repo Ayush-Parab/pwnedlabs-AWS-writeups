@@ -24,7 +24,7 @@ git clone https://github.com/huge-logistics/cargo-logistics-dev
 
 Lets look at the directory structure:-
 
-![](Pasted%20image%2020260923230522.png)
+![](./images/Pasted%20image%2020260923230522.png)
 
 As we can see, there are many files present inside this repository and it is almost impossible to manually look through all these files one by one. 
 What we are looking for right now is the presence of any leaked credentials. We will use `gitleaks` which is a very good tool which is used for secrets scanning in many repositories and pipelines.
@@ -100,11 +100,11 @@ Here we can see that a total of two commits have been made to this particular fi
 
 If we take a look at the local copy of repo, there is no such directory present which means it was deleted as mentioned in the comment. However, since we are tracking changes using `git`, the history of all our actions is stored. We will try to uncover this.
 
-![](Pasted%20image%2020260923231302.png)
+![](./images/Pasted%20image%2020260923231302.png)
 
 In the initial commit with hash `d8098af5fbf1aa35ae22e99b9493ffae5d97d58f`, we can see a lot of new information added. To narrow down, lets check the second commit with hash `ea1a7618508b8b0d4c7362b4044f1c8419a07d99`
 
-![](Pasted%20image%2020260923231419.png)
+![](./images/Pasted%20image%2020260923231419.png)
 
 Here we can see the exact lines of code that were deleted!
 

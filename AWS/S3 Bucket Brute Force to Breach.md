@@ -20,7 +20,7 @@ Checking the webpage for S3 bucket if it reveals any information.
 https://hlogistics-web.s3.amazonaws.com/
 ```
 
-![](Pasted%20image%2020260803224030.png)
+![](./images/Pasted%20image%2020260803224030.png)
 
 We can see that an `index.html` file is present inside this bucket which usually means a web server front page. Lets try accessing it.
 
@@ -28,11 +28,11 @@ We can see that an `index.html` file is present inside this bucket which usually
 https://hlogistics-web.s3.amazonaws.com/index.html
 ```
 
-![](Pasted%20image%2020260803224111.png)
+![](./images/Pasted%20image%2020260803224111.png)
 
 We were right, it does open a landing page for a website! Lets review the source code to check for any interesting information.
 
-![](Pasted%20image%2020260809000342.png)
+![](./images/Pasted%20image%2020260809000342.png)
 
 From the source code it is visible that multiple S3 buckets have been used and they follow a general naming convention - `hlogistics-<name>`. We will try to enumerate for more S3 buckets using `ffuf` for bruteforce.
 
@@ -97,11 +97,11 @@ We have received several `S3` buckets with `200 OK` status indicating they are u
 #### hlogistics-beta
 
 
-![](Pasted%20image%2020260803231653.png)
+![](./images/Pasted%20image%2020260803231653.png)
 
 `hlogistics-beta` bucket contains the following python script file, lets try to access it and check the contents.
 
-![](Pasted%20image%2020260803231707.png)
+![](./images/Pasted%20image%2020260803231707.png)
 
 We get hardcoded credentials inside the script file!
 
@@ -307,7 +307,7 @@ aws dynamodb describe-endpoints
 }
 ```
 
-![](Pasted%20image%2020260809002913.png)
+![](./images/Pasted%20image%2020260809002913.png)
 
 `Dynamodb` does not reveal anything interesting.
 

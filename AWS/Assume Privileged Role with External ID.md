@@ -123,7 +123,7 @@ We can observe in the above information that this is an Apache web server runnin
 
 #### Web enumeration
 
-![](Pasted%20image%2020260914162230.png)
+![](./images/Pasted%20image%2020260914162230.png)
 
 This is a very basic website with not much functionality. Lets move on to directory enumeration since we did not find anything interesting in the source code of the landing page.
 
@@ -223,7 +223,7 @@ vendor                  [Status: 301, Size: 311, Words: 20, Lines: 10, Duration:
 
 In the above output, we can see `config.json` file is available with 200 OK response. Let's inspect it.
 
-![](Pasted%20image%2020260914162656.png)
+![](./images/Pasted%20image%2020260914162656.png)
 
 We got leaked credentials!
 
@@ -417,7 +417,7 @@ We were successfully able to retrieve value of one of the secrets, other secret 
 
 Since we have received a username and a password, it probably belongs to the AWS management console.
 
-![](Pasted%20image%2020260914164902.png)
+![](./images/Pasted%20image%2020260914164902.png)
 
 We were able to log in to the GUI however most of the things are restricted to us and it is very troublesome to enumerate using GUI.
 
@@ -426,7 +426,7 @@ We were able to log in to the GUI however most of the things are restricted to u
 Open the inspect menu ---> networks tab ---> refresh ---> filter with "creds"
 
 
-![](Screenshot%202026-09-14%20143130.png)
+![](./images/Screenshot%202026-09-14%20143130.png)
 
 Here you can see that credentials are present in plain sight.
 

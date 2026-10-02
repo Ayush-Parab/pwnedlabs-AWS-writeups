@@ -200,7 +200,7 @@ We get some information like this service is running on an EC2 instance from AWS
 
 ### Web enumeration
 
-![](Pasted%20image%2020260913165002.png)
+![](./images/Pasted%20image%2020260913165002.png)
 
 After knowing that this is a webpage, I checked for `robots.txt` and `sitemap.xml` both of which are absent currently.
 
@@ -243,36 +243,36 @@ signup                  [Status: 200, Size: 2500, Words: 632, Lines: 78, Duratio
 
 Here we can see that `login` and `signup` have received HTTP 200 OK as a response. 
 
-![](Pasted%20image%2020260913165303.png)
+![](./images/Pasted%20image%2020260913165303.png)
 
 On the page to register, I registered using a dummy account with credentials `test:test`
 
-![](Pasted%20image%2020260913165355.png)
+![](./images/Pasted%20image%2020260913165355.png)
 
 It opens the `invoices` page which has some data that can be exported.
 
 We then click on `export to csv` button and observe the URL in BurpSuite.
 
-![](Pasted%20image%2020260913165506.png)
+![](./images/Pasted%20image%2020260913165506.png)
 
 Since the file is getting downloaded using the filename, we can try the path traversal vulnerability over here.
 
-![](Pasted%20image%2020260913165555.png)
+![](./images/Pasted%20image%2020260913165555.png)
 
 We set the payloads assuming that this is a linux server.
 
-![](Pasted%20image%2020260913165627.png)
+![](./images/Pasted%20image%2020260913165627.png)
 
 As you can see, we received a HTTP 200 OK on one of the paths, implying that the website is vulnerable to path traversal.
 
 We can now download the `/etc/passwd` and `/etc/shadow` files to try and crack the credentials.
 However, we are not successful to crack those.
 
-![](Pasted%20image%2020260913165751.png)
+![](./images/Pasted%20image%2020260913165751.png)
 
 In `/etc/passwd` we can see that there is the default `ec2-user` and a `nedf` user. We can then try to get the credentials for `nedf` user from his `.aws` directory.
 
-![](Pasted%20image%2020260913165858.png)
+![](./images/Pasted%20image%2020260913165858.png)
 
 And our guess was right, we do see the credentials configured!
 

@@ -144,13 +144,13 @@ I have used my own AWS account for this step.
 
 In this file we find some more credentials:-
 
-![](Pasted%20image%2020260915233147.png)
+![](./images/Pasted%20image%2020260915233147.png)
 
 ### Initial foothold
 
 Lets use these username and password and the Account ID we enumerated to log in to the AWS management console!
 
-![](Pasted%20image%2020260915233324.png)
+![](./images/Pasted%20image%2020260915233324.png)
 
 We were able to log in using the credentials.
 
@@ -162,7 +162,7 @@ Go to IAM ---> Inspect ---> Network tab ---> refresh ---> filter "creds"
 
 This gives us the temporary credentials for the IAM service for this user which we can then import into `pacu`
 
-![](Pasted%20image%2020260915233733.png)
+![](./images/Pasted%20image%2020260915233733.png)
 
 However, we got no leads from `pacu`
 
@@ -196,7 +196,7 @@ Pacu (jose:imported-jose) > whoami
 
 After this we will explore the `secrets manager` since it was present in the recently viewed services.
 
-![](Pasted%20image%2020260915233932.png)
+![](./images/Pasted%20image%2020260915233932.png)
 
 We were able to retrieve the values of one of the secrets which reveals information about `mariadb` database. 
 
