@@ -12,9 +12,9 @@ I highly recommend attempting the labs on your own before reading the solutions 
 *(Update this list as you add more writeups to the repository)*
 
 | Lab Name | Difficulty | Concepts Covered | Link |
-| :--- | :---: | :--- | :--- |
-| **Example Lab Name** | Easy | IAM Privilege Escalation, S3 Enumeration | [Read Here](./example-writeup.md) |
-| **Another Lab** | Medium | EC2 Metadata, SSRF | [Read Here](./another-writeup.md) |
+| :--- | :--- |
+| **AWS S3 Enumeration Basics.md** | [Read Here](./AWS/AWS S3 Enumeration Basics.md) |
+| **Access Secrets with S3 Bucket Versioning.md** | [Read Here](./AWS/Access Secrets with S3 Bucket Versioning.md) |
 
 ## 🛠️ Typical Tools Used
 Throughout these labs, I commonly use the following tools:
