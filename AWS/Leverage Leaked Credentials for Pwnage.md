@@ -31,8 +31,8 @@ gitleaks detect -v
     ○ ░
     ░    gitleaks
 
-Finding:     ...P_AWS_ACCESS_KEY_ID=AKIAWHEOTHRFVXYV44WP
-Secret:      AKIAWHEOTHRFVXYV44WP
+Finding:     ...P_AWS_ACCESS_KEY_ID=AKIAWHEOTH<REDACTED>
+Secret:      AKIAWHE<REDACTED>
 RuleID:      aws-access-token
 Entropy:     3.821928
 File:        .env
@@ -93,7 +93,7 @@ Scanning 67 files (only git-tracked) with 52 Code rules:
           Instead, read this value from an environment variable or keep it in a separate, private file.     
           Details: https://sg.run/GeD1                                                                      
                                                                                                             
-           40┆ REACT_APP_AWS_ACCESS_KEY_ID=AKIAWHEOTHRFVXYV44WP
+           40┆ REACT_APP_AWS_ACCESS_KEY_ID=AKIAWHE<REDACTED>
                                                                    
     aws-react-app/database/factories/UserFactory.php
    ❯❯❱ generic.secrets.security.detected-bcrypt-hash.detected-bcrypt-hash
@@ -129,7 +129,7 @@ Here also we have detected the same access key for AWS and and another secret wh
 Using the `AWS ACCESS KEY` we can find out the account ID:-
 
 ```
-aws sts get-access-key-info --access-key-id=AKIAWHEOTHRFVXYV44WP --profile Ayush
+aws sts get-access-key-info --access-key-id=AKIAWHE<REDACTED> --profile Ayush
 ```
 
 ```

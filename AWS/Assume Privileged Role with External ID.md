@@ -14,8 +14,8 @@ Huge Logistics, a global force in the logistics and shipping industry, has reach
 IP Address: 52.0.51.234
 
 Access Keys:-
-Access key ID: AKIAWHEOTHRFSKQN5YWQ
-Secret access key: mqHNmiM+4Fx2qbTo9oQ/tTCvfEN5Gsu3Tpvfq7Wg 
+Access key ID: AKIAWHEOT<REDACTED>
+Secret access key: mqHNmiM+4Fx2qbTo9oQ<REDACTED> 
 ```
 
 ### Enumeration

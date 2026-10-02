@@ -11,9 +11,9 @@ AWS credentials and IP address
 
 IP address: 54.204.171.32
 
-Access key ID: AKIAWHEOTHRFSCF5OELC
+Access key ID: AKIAWHE<REDACTED>
 
-Secret access key: /eThpKvOcZBoa3RnR6wgE+Obcu+u24oIHfH3OpUJ
+Secret access key: /eThpKvOcZBoa3<REDACTED>
 ```
 
 ### Enumeration

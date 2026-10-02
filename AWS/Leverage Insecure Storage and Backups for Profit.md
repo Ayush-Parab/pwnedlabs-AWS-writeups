@@ -7,9 +7,9 @@ Your team stumbled upon AWS credentials on a compromised IT workstation. Your mi
 ### Information provided
 
 ```
-Access key ID: AKIAWHEOTHRFRH64EQRI
+Access key ID: AKIAW<REDACTED>
 
-Secret access key: ca20SpjCuX95ev4qMbSWyAWg6NpzjBX49XIlygYP
+Secret access key: ca20SpjCuX<REDACTED>
 ```
 
 ### Enumeration

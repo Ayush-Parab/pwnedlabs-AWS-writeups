@@ -13,9 +13,9 @@ Password: G3tt1ngStar73d!
 
 https://794929857501.signin.aws.amazon.com/console
 
-Access key ID: AKIA3SFMDAPOU4QKZLGO
+Access key ID: AKIA3SFMD<REDACTED>
 
-Secret access key: OIMngHtqvAZkRf6D8s7HJ2KQKnUoBTqNBX9Nk+11
+Secret access key: OIMngHtqvAZkRf6D<REDACTED>
 ```
 
 ### Enumeration
