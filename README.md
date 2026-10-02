@@ -11,7 +11,7 @@ I highly recommend attempting the labs on your own before reading the solutions 
 
 *(Update this list as you add more writeups to the repository)*
 
-| Lab Name | Difficulty | Concepts Covered | Link |
+| Lab Name | Link |
 | :--- | :--- |
 | **AWS S3 Enumeration Basics.md** | [Read Here](./AWS/AWS S3 Enumeration Basics.md) |
 | **Access Secrets with S3 Bucket Versioning.md** | [Read Here](./AWS/Access Secrets with S3 Bucket Versioning.md) |
